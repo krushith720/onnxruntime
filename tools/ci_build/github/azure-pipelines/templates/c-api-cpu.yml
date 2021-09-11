@@ -369,6 +369,7 @@ jobs:
     displayName: 'Download android-full-aar Pipeline Artifact'
     inputs:
       artifactName: 'onnxruntime-android-full-aar'
+      itemPattern: '*.aar'
       targetPath: '$(Build.BinariesDirectory)/nuget-artifact'
 
   #Reconstruct the build dir
