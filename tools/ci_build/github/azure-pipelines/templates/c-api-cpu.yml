@@ -372,17 +372,18 @@ jobs:
       artifactName: 'drop-extra'
       targetPath: '$(Build.BinariesDirectory)/extra-artifact'
 
-  #Reconstruct the build dir
-  - task: PowerShell@2
-    displayName: 'PowerShell Script'
-    inputs:
-      targetType: filePath
-      filePath: $(Build.SourcesDirectory)\tools\ci_build\github\windows\extract_nuget_files.ps1
-
   - script: |
      dir
     workingDirectory: '$(Build.BinariesDirectory)/nuget-artifact'
     displayName: 'List artifacts'
+
+  #Reconstruct the build dir
+  - task: PowerShell@2
+    displayName: 'Extract native libraries for addition to nuget native package'
+    inputs:
+      targetType: filePath
+      filePath: $(Build.SourcesDirectory)\tools\ci_build\github\windows\extract_nuget_files.ps1
+
   - script: |
      mklink /D /J models C:\local\models
     workingDirectory: '$(Build.BinariesDirectory)'
@@ -467,10 +468,6 @@ jobs:
       targetPath: '$(Build.ArtifactStagingDirectory)'
 
 
-  - powershell: |
-     Get-ChildItem env:
-    displayName: 'Dump env'
-
   - task: MSBuild@1
     displayName: 'Clean C#'
     inputs:
@@ -484,8 +481,6 @@ jobs:
     displayName: 'Run Roslyn Analyzers'
     inputs:
       userProvideBuildInfo: msBuildInfo
-      # msBuildArchitecture: DotNetCore
-      # TODO: Find a build variable for the VS install path
       msBuildCommandline: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe" $(Build.SourcesDirectory)\csharp\OnnxRuntime.CSharp.sln -p:configuration="RelWithDebInfo" -p:Platform="Any CPU" -p:OnnxRuntimeBuildDirectory="$(Build.BinariesDirectory)" -p:OrtPackageId=$(OrtPackageId)'
     condition: and(succeeded(), eq('${{ parameters.DoCompliance }}', true))
 
