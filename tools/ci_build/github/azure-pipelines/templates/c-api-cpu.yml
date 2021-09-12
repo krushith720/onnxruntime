@@ -363,8 +363,7 @@ jobs:
     displayName: 'Download android-full-aar Pipeline Artifact'
     inputs:
       artifactName: 'onnxruntime-android-full-aar'
-      patterns: |
-        *.aar
+      patterns: '**/*.aar'
       targetPath: '$(Build.BinariesDirectory)/nuget-artifact'
 
   - task: DownloadPipelineArtifact@0
