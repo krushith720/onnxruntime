@@ -359,11 +359,12 @@ jobs:
       artifactName: 'onnxruntime-linux-x64'
       targetPath: '$(Build.BinariesDirectory)/nuget-artifact'
 
-  - task: DownloadPipelineArtifact@0
-    displayName: 'Download iOS Pipeline Artifact'
-    inputs:
-      artifactName: 'onnxruntime-ios-full-xcframework'
-      targetPath: '$(Build.BinariesDirectory)/nuget-artifact'
+  # Need to add top level folder to zip so it doesn't break the extraction script
+  # - task: DownloadPipelineArtifact@0
+  #   displayName: 'Download iOS Pipeline Artifact'
+  #   inputs:
+  #     artifactName: 'onnxruntime-ios-full-xcframework'
+  #     targetPath: '$(Build.BinariesDirectory)/nuget-artifact'
 
   - task: DownloadPipelineArtifact@2
     displayName: 'Download android-full-aar Pipeline Artifact'
