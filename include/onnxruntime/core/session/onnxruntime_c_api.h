@@ -453,7 +453,7 @@ struct OrtApi {
   /**
   * \brief Create an OrtStatus from a null terminated string
   *
-  * \param[in] code
+  * \param[in] code The error code.
   * \param[in] msg A null-terminated string. Its contents will be copied.
   * \return A new OrtStatus object, must be destroyed with OrtApi::ReleaseStatus
   */
@@ -461,14 +461,14 @@ struct OrtApi {
 
   /** \brief Get OrtErrorCode from OrtStatus
   *
-  * \param[in] status
+  * \param[in] status The status object.
   * \return OrtErrorCode that \p status was created with
   */
   OrtErrorCode(ORT_API_CALL* GetErrorCode)(_In_ const OrtStatus* status) NO_EXCEPTION ORT_ALL_ARGS_NONNULL;
 
   /** \brief Get error string from OrtStatus
   *
-  * \param[in] status
+  * \param[in] status The status object.
   * \return The error message inside the `status`. Do not free the returned value.
   */
   const char*(ORT_API_CALL* GetErrorMessage)(_In_ const OrtStatus* status)NO_EXCEPTION ORT_ALL_ARGS_NONNULL;

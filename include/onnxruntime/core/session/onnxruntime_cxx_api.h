@@ -384,7 +384,7 @@ struct Session : Base<OrtSession> {
   * See the output logs for more information on warnings/errors that occur while processing the model.
   * Common errors are.. (TODO)
   * 
-  * \param[in] run_options
+  * \param[in] run_options Options for this run.
   * \param[in] input_names Array of null terminated strings of length input_count that is the list of input names
   * \param[in] input_values Array of Value objects of length input_count that is the list of input values
   * \param[in] input_count Number of inputs (the size of the input_names & input_values arrays)
