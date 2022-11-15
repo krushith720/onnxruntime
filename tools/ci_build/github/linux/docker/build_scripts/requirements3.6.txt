@@ -55,7 +55,7 @@ pip==21.2.2 \
     --hash=sha256:38e9250dfb0d7fa842492bede9259d4b3289a936ce454f7c58f059f28a94c01d \
     --hash=sha256:b02a9d345f913e03fde2ed41896687cc1a2053c6adbe142ec03cff6b0827233d
     # via -r requirements.in
-setuptools==57.4.0 \
+setuptools==65.5.1 \
     --hash=sha256:6bac238ffdf24e8806c61440e755192470352850f3419a52f26ffe0a1a64f465 \
     --hash=sha256:a49230977aa6cfb9d933614d2f7b79036e9945c4cdd7583163f4e920b83418d6
     # via -r requirements.in
