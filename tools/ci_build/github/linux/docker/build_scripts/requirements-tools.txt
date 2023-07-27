@@ -12,7 +12,7 @@ auditwheel==4.0.0 \
     --hash=sha256:03a079fe273f42336acdb5953ff5ce7578f93ca6a832b16c835fe337a1e2bd4a \
     --hash=sha256:96927695ddf27b4edb67291e326908d64ffe272b8a42b9504f283e7ae5ebbc14
     # via -r requirements-tools.in
-certifi==2021.5.30 \
+certifi==2023.7.22 \
     --hash=sha256:2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee \
     --hash=sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8
     # via -r requirements-tools.in
